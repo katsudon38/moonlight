@@ -1,0 +1,76 @@
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body {
+  font-family: system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+  font-size: 13px;
+  color: #222;
+  background: #f4f5f7;
+}
+.app { display: flex; height: 100%; }
+.sidebar {
+  width: 340px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  padding: 12px;
+  background: #fff;
+  border-right: 1px solid #ddd;
+}
+.sidebar h1 { font-size: 18px; margin: 0 0 12px; }
+.map { flex: 1; height: 100%; }
+
+.panel { margin-bottom: 16px; }
+.panel h2 { font-size: 14px; margin: 0 0 8px; padding-bottom: 4px; border-bottom: 1px solid #eee; }
+.muted { color: #777; }
+.small { font-size: 11px; margin: 2px 0 6px; }
+.error { color: #c0392b; background: #fdecea; padding: 6px 8px; border-radius: 4px; }
+
+.layer-list { list-style: none; padding: 0; margin: 0; }
+.layer-item { border: 1px solid #e3e3e3; border-radius: 6px; padding: 6px 8px; margin-bottom: 6px; background: #fafafa; }
+.layer-row { display: flex; align-items: center; gap: 6px; }
+.layer-row + .layer-row { margin-top: 4px; }
+.layer-name { flex: 1; min-width: 0; border: 1px solid transparent; background: transparent; padding: 2px 4px; font: inherit; }
+.layer-name:hover, .layer-name:focus { border-color: #ccc; background: #fff; }
+.layer-row input[type='color'] { width: 22px; height: 22px; padding: 0; border: none; background: none; cursor: pointer; }
+.badge { font-size: 10px; background: #e1e8f0; color: #345; border-radius: 3px; padding: 1px 5px; white-space: nowrap; }
+.opacity { display: flex; align-items: center; gap: 4px; flex: 1; font-size: 11px; color: #555; }
+.opacity input { flex: 1; min-width: 0; }
+.num { width: 34px; text-align: right; font-variant-numeric: tabular-nums; }
+.buttons { display: flex; gap: 2px; }
+.buttons button { width: 24px; height: 24px; padding: 0; font-size: 11px; }
+.buttons .danger:hover:not(:disabled) { background: #fdecea; color: #c0392b; }
+
+.tabs { display: flex; gap: 2px; margin-bottom: 8px; }
+.tabs button { flex: 1; border-radius: 4px 4px 0 0; }
+.tabs button.active { background: #2d6cdf; color: #fff; border-color: #2d6cdf; }
+
+form, .form { display: flex; flex-direction: column; gap: 6px; }
+form label, .form label { display: flex; flex-direction: column; gap: 2px; font-size: 12px; color: #444; }
+input:not([type]), input[type='text'], select, textarea {
+  font: inherit;
+  padding: 4px 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+textarea { font-family: ui-monospace, monospace; font-size: 11px; resize: vertical; }
+button {
+  font: inherit;
+  padding: 5px 10px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  background: #f7f7f7;
+  cursor: pointer;
+}
+button:hover:not(:disabled) { background: #eee; }
+button:disabled { opacity: 0.4; cursor: default; }
+form button[type='submit'] { background: #2d6cdf; color: #fff; border-color: #2d6cdf; }
+form button[type='submit']:hover:not(:disabled) { background: #2458b8; }
+
+.props { border-collapse: collapse; font-size: 12px; }
+.props th, .props td { border-bottom: 1px solid #eee; padding: 2px 6px; text-align: left; vertical-align: top; }
+.props th { color: #555; font-weight: 600; white-space: nowrap; }
+.maplibregl-popup-content { max-height: 300px; overflow: auto; }
+
+@media (max-width: 700px) {
+  .app { flex-direction: column-reverse; }
+  .sidebar { width: 100%; height: 45%; border-right: none; border-top: 1px solid #ddd; }
+}
